@@ -8,17 +8,20 @@ namespace ArvoreGenerica
     {
         static void Main(string[] args)
         {
-            No<string> raiz = new No<string>("A");
-            raiz.Adiciona("B");
-            raiz.Adiciona("D");
-            raiz.Adiciona("C");
-            var b = raiz.Pegue("B");
-            var c = raiz.Pegue("C");            
-            b.Adiciona(new string[] { "E", "F" });
-            var f = raiz.Pegue("F");
-            b.Adiciona(new string[] { "I", "J", "K" });
-            c.Adiciona(new string[] { "G", "H"});
-            Console.WriteLine("A altura da raiz é: " + ArvoreG.Altura(raiz));
-        }        
+            // Construíndo a árvore
+            NoArvore<object> raiz = new NoArvore<object>("A");
+            raiz.Adiciona(new string[] { "B", "C", "E" });            
+
+            var B = raiz.Pegue("B");
+            var C = raiz.Pegue("C");
+
+            B.Adiciona(new string[] { "D", "F" });            
+            C.Adiciona("G");
+
+            //
+            ArvoreG.ImprimiDados(raiz);
+                      
+            Console.ReadKey();
+        }             
     }
 }

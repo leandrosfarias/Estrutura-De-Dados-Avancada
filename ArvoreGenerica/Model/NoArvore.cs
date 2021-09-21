@@ -3,20 +3,20 @@ using System.Collections.Generic;
 
 namespace ArvoreGenerica.Model
 {
-    public class No<T> 
+    public class NoArvore<T> 
     {
         public LinkedListNode<T> Dado { get; set; }
-        public No<T> Pai { get; set; }
-        public LinkedList<No<T>> filhos = new LinkedList<No<T>>();
+        public NoArvore<T> Pai { get; set; }
+        public LinkedList<NoArvore<T>> Filhos = new LinkedList<NoArvore<T>>();
         public int Grau { get; set; }
 
-        public No(T valor)
+        public NoArvore(T valor)
         {
             LinkedListNode<T> dado = new LinkedListNode<T>(valor);
             this.Dado = dado;
         }
 
-        public No(LinkedListNode<T> dado, No<T> pai)
+        public NoArvore(LinkedListNode<T> dado, NoArvore<T> pai)
         {
             this.Dado = dado;
             this.Pai = pai;
@@ -24,8 +24,8 @@ namespace ArvoreGenerica.Model
        
         public void Adiciona(T filho)
         {
-            No<T> dado = new No<T>(filho);
-            filhos.AddLast(dado);
+            NoArvore<T> dado = new NoArvore<T>(filho);
+            Filhos.AddLast(dado);
             dado.Pai = this;
             this.Grau++;
         }
@@ -38,9 +38,9 @@ namespace ArvoreGenerica.Model
             }
         }
 
-        public No<T> Pegue(object valor)
+        public NoArvore<T> Pegue(object valor)
         {
-            foreach (No<T> filho in filhos)
+            foreach (NoArvore<T> filho in Filhos)
             {
                 if (filho.Dado.Value.Equals(valor))
                     return filho;
@@ -58,7 +58,7 @@ namespace ArvoreGenerica.Model
 
         public bool EhNoExterno()
         {
-            if (this.filhos.Count == 0)
+            if (this.Filhos.Count == 0)
                 return true;
             else
                 return false;
