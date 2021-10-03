@@ -1,0 +1,14 @@
+D:\source\repos\ArvoreBinaria\bin\Debug\netcoreapp3.1\ArvoreDeBuscaBinaria.exe
+D:\source\repos\ArvoreBinaria\bin\Debug\netcoreapp3.1\ArvoreDeBuscaBinaria.deps.json
+D:\source\repos\ArvoreBinaria\bin\Debug\netcoreapp3.1\ArvoreDeBuscaBinaria.runtimeconfig.json
+D:\source\repos\ArvoreBinaria\bin\Debug\netcoreapp3.1\ArvoreDeBuscaBinaria.runtimeconfig.dev.json
+D:\source\repos\ArvoreBinaria\bin\Debug\netcoreapp3.1\ArvoreDeBuscaBinaria.dll
+D:\source\repos\ArvoreBinaria\bin\Debug\netcoreapp3.1\ArvoreDeBuscaBinaria.pdb
+D:\source\repos\ArvoreBinaria\obj\Debug\netcoreapp3.1\ArvoreDeBuscaBinaria.csproj.AssemblyReference.cache
+D:\source\repos\ArvoreBinaria\obj\Debug\netcoreapp3.1\ArvoreDeBuscaBinaria.GeneratedMSBuildEditorConfig.editorconfig
+D:\source\repos\ArvoreBinaria\obj\Debug\netcoreapp3.1\ArvoreDeBuscaBinaria.AssemblyInfoInputs.cache
+D:\source\repos\ArvoreBinaria\obj\Debug\netcoreapp3.1\ArvoreDeBuscaBinaria.AssemblyInfo.cs
+D:\source\repos\ArvoreBinaria\obj\Debug\netcoreapp3.1\ArvoreDeBuscaBinaria.csproj.CoreCompileInputs.cache
+D:\source\repos\ArvoreBinaria\obj\Debug\netcoreapp3.1\ArvoreDeBuscaBinaria.dll
+D:\source\repos\ArvoreBinaria\obj\Debug\netcoreapp3.1\ArvoreDeBuscaBinaria.pdb
+D:\source\repos\ArvoreBinaria\obj\Debug\netcoreapp3.1\ArvoreDeBuscaBinaria.genruntimeconfig.cache
