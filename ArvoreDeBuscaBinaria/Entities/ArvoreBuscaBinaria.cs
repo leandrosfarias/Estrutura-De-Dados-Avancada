@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ArvoreBinaria.Entities
 {
@@ -156,10 +157,29 @@ namespace ArvoreBinaria.Entities
         {
             if (no != null)
             {
-                Console.WriteLine(no.Dado);
+                Console.Write(no.Dado + " -> ");
                 PreOrdem(no.Esquerdo);
                 PreOrdem(no.Direito);
             }
-        }              
+        }
+        
+        public static void PrintOrdemNivel(Node raiz)
+        {
+            Queue<Node> filaNodes = new Queue<Node>();
+            filaNodes.Enqueue(raiz);
+            while (filaNodes.Count > 0)
+            {
+                Node node = filaNodes.Dequeue();
+                Console.WriteLine(node.Dado);
+                if (node.Esquerdo != null)
+                {
+                    filaNodes.Enqueue(node.Esquerdo);
+                }
+                if (node.Direito != null)
+                {
+                    filaNodes.Enqueue(node.Direito);
+                }
+            }
+        }        
     }    
 }

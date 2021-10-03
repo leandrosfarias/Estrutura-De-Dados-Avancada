@@ -17,8 +17,8 @@ namespace ArvoreBinaria
             arvore.Insere(55, arvore.GetNode(60));
             arvore.Insere(53, arvore.GetNode(55));
             arvore.Insere(70, arvore.GetNode(60));
-            Console.WriteLine(arvore.Nivel(arvore.Raiz));
-
+            
+            arvore.PreOrdem();
 
         }            
     }
