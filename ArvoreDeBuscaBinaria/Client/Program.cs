@@ -8,18 +8,29 @@ namespace ArvoreBinaria
         static void Main(string[] args)
         {
             ArvoreBuscaBinaria arvore = new ArvoreBuscaBinaria();
-            arvore.Insere(50);
             arvore.Insere(40);
-            arvore.Insere(60);
-            arvore.Insere(30, arvore.GetNode(40));
+            arvore.Insere(30);
+            arvore.Insere(65);
+            arvore.Insere(75, arvore.GetNode(65));
+            arvore.Insere(25, arvore.GetNode(30));
             arvore.Insere(35, arvore.GetNode(30));
-            arvore.Insere(45, arvore.GetNode(40));
-            arvore.Insere(55, arvore.GetNode(60));
-            arvore.Insere(53, arvore.GetNode(55));
-            arvore.Insere(70, arvore.GetNode(60));
-            
-            arvore.PreOrdem();
+            arvore.Insere(38, arvore.GetNode(35));
+            arvore.Insere(28, arvore.GetNode(25));
+            arvore.Insere(26, arvore.GetNode(28));
 
-        }            
+
+            arvore.PrintNodes(arvore.Raiz);
+            arvore.PrintGraus(arvore.Raiz);
+            arvore.PrintProfundidades(arvore.Raiz);
+            arvore.PrintNivel(arvore.Raiz);
+
+            Console.WriteLine("Pré Ordem:\n");
+            arvore.PreOrdem();
+            Console.WriteLine("\nEm ordem:\n");
+            arvore.EmOrdem();
+            Console.WriteLine("\nPós ordem:\n");
+            arvore.PosOrdem();
+            Console.ReadKey();
+        }
     }
 } 

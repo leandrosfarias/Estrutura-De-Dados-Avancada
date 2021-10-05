@@ -11,12 +11,22 @@ namespace ArvoreBinaria.Entities
         public Node Esquerdo { get; set; }
         public Node Direito { get; set; }
         public Node Pai { get; set; }
+        public int Grau { get; set; }
+        public char TipoFilho { get; internal set; }
 
         public Node(int valor)
         {
-            this.Dado = valor;
-            this.Esquerdo = null;
-            this.Direito = null;
+            this.Dado = valor;            
+        }
+
+        public bool TemEsquerdo()
+        {
+            return this.Esquerdo != null;
+        }
+
+        public bool TemDireito()
+        {
+            return this.Direito != null;
         }
 
         public override string ToString()
