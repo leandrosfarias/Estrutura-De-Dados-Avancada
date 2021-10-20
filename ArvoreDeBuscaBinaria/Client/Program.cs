@@ -1,5 +1,6 @@
 ﻿using ArvoreBinaria.Entities;
 using System;
+using System.Collections.Generic;
 
 namespace ArvoreBinaria
 {
@@ -8,29 +9,22 @@ namespace ArvoreBinaria
         static void Main(string[] args)
         {
             ArvoreBuscaBinaria arvore = new ArvoreBuscaBinaria();
-            arvore.Insere(40);
-            arvore.Insere(30);
-            arvore.Insere(65);
-            arvore.Insere(75, arvore.GetNode(65));
-            arvore.Insere(25, arvore.GetNode(30));
-            arvore.Insere(35, arvore.GetNode(30));
-            arvore.Insere(38, arvore.GetNode(35));
-            arvore.Insere(28, arvore.GetNode(25));
-            arvore.Insere(26, arvore.GetNode(28));
-
-
-            arvore.PrintNodes(arvore.Raiz);
-            arvore.PrintGraus(arvore.Raiz);
-            arvore.PrintProfundidades(arvore.Raiz);
-            arvore.PrintNivel(arvore.Raiz);
-
-            Console.WriteLine("Pré Ordem:\n");
-            arvore.PreOrdem();
-            Console.WriteLine("\nEm ordem:\n");
-            arvore.EmOrdem();
-            Console.WriteLine("\nPós ordem:\n");
-            arvore.PosOrdem();
+            arvore.Insere(5);
+            arvore.Insere(1);
+            arvore.Insere(8);
+            arvore.Insere(9, arvore.GetNode(8));
+            //Program.PrintPercurso(arvore.PosOrdem(arvore.Raiz));
+            PrintPercurso(arvore.PosOrdem());
             Console.ReadKey();
         }
+
+        public static void PrintPercurso(List<Node> percurso)
+        {
+            foreach (Node node in percurso)
+            {
+                Console.Write(node + "-> ");
+            }
+        }
+
     }
 } 

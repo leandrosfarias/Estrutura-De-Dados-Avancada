@@ -5,7 +5,8 @@ namespace ArvoreBinaria.Entities
 {
     public class ArvoreBuscaBinaria
     {
-        public Node Raiz { get; set; }
+        public Node Raiz { get; set; }       
+        private List<Node> percurso = new List<Node>();
 
         public bool Vazio()
         {
@@ -205,51 +206,100 @@ namespace ArvoreBinaria.Entities
             return node.Grau;
         }
 
-        public void PreOrdem()
+        //public void PreOrdem()
+        //{
+        //    PreOrdem(this.Raiz);
+        //}
+
+        //public void PreOrdem(Node node)
+        //{
+        //    if (node != null)
+        //    {
+        //        Console.Write(node.Dado + " -> ");
+        //        PreOrdem(node.Esquerdo);
+        //        PreOrdem(node.Direito);
+        //    }
+        //}
+
+        //public void EmOrdem()
+        //{
+        //    this.EmOrdem(this.Raiz);
+        //}
+
+        //public void EmOrdem(Node node)
+        //{
+        //    if (node != null)
+        //    {
+        //        PreOrdem(node.Esquerdo);
+        //        Console.Write(node.Dado + " -> ");
+        //        PreOrdem(node.Direito);
+        //    }
+        //}
+
+        //public void PosOrdem()
+        //{
+        //    this.PosOrdem(this.Raiz);
+        //}
+
+        //public void PosOrdem(Node node)
+        //{
+        //    if (node != null)
+        //    {
+        //        PosOrdem(node.Esquerdo);
+        //        PosOrdem(node.Direito);
+        //        Console.Write(node.Dado + " -> ");
+        //    }
+        //}
+
+        public List<Node> PreOrdem()
         {
-            PreOrdem(this.Raiz);
+            return PreOrdem(this.Raiz);
         }
 
-        public void PreOrdem(Node node)
+        public List<Node> PreOrdem(Node node)
         {
+            //percurso.Clear();
             if (node != null)
-            {   
-                Console.Write(node.Dado + " -> ");
+            {
+                percurso.Add(node);
                 PreOrdem(node.Esquerdo);
                 PreOrdem(node.Direito);
             }
+            return percurso;
         }
 
-        public void EmOrdem()
+        public List<Node> EmOrdem()
         {
-            this.EmOrdem(this.Raiz);
+            return EmOrdem(this.Raiz);
         }
 
-        public void EmOrdem(Node node)
+        public List<Node> EmOrdem(Node node)
         {
             if (node != null)
             {
                 PreOrdem(node.Esquerdo);
-                Console.Write(node.Dado + " -> ");
+                percurso.Add(node);
                 PreOrdem(node.Direito);
             }
+            return percurso;
         }
 
-        public void PosOrdem()
+        public List<Node> PosOrdem()
         {
-            this.PosOrdem(this.Raiz);
+            return PosOrdem(this.Raiz);
         }
 
-        public void PosOrdem(Node node)
+        private List<Node> PosOrdem(Node node)
         {
             if (node != null)
             {
                 PosOrdem(node.Esquerdo);
                 PosOrdem(node.Direito);
-                Console.Write(node.Dado + " -> ");
+                percurso.Add(node);
             }
+            return percurso;
         }
-        
+
         public bool EhFolha(Node node)
         {
             if (node.Esquerdo == null && node.Direito == null)
@@ -261,9 +311,7 @@ namespace ArvoreBinaria.Entities
         {
             return node.TipoFilho;
         }
-
         
-
         public void PrintNodes(Node raiz)
         {
             Console.WriteLine("Os nós...");
@@ -366,7 +414,8 @@ namespace ArvoreBinaria.Entities
 
         public void PrintArvore(int valor)
         {
-            throw new NotImplementedException();
+            Node atual = this.GetNode(valor);
+            
         }
 
     }    
