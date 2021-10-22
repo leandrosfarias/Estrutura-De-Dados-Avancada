@@ -40,12 +40,13 @@ class BST:
                     new_node.pai = self.raiz
                     self.raiz.esquerdo = new_node
                 else:
-                    print('Já possui filho direito')
+                    print('Já possui filho esquerdo')
             else:
                 if not self.raiz.tem_filho_direito():
-                    new_node = Node(valor)
-                    new_node.pai = self.raiz
-                    self.raiz.direito = new_node
+                    if valor > self.raiz.valor:
+                        new_node = Node(valor)
+                        new_node.pai = self.raiz
+                        self.raiz.direito = new_node
                 else:
                     print('Já possui filho direito')
 
