@@ -13,28 +13,41 @@ class BST:
         else:
             self.raiz = None
 
-    def eh_raiz(self, node):
-        return self.raiz == node
+    @staticmethod
+    def eh_raiz(node):
+        return node.pai is None
 
-    def insere(self, valor=None, pai=None):
+    def insere(self, valor: int, pai=None):
         if pai:
             if valor < pai.valor:
-                new_node = Node(valor)
-                new_node.pai = pai
-                pai.esquerdo = new_node
-            else:
-                new_node = Node(valor)
-                new_node.pai = pai
-                pai.direito = new_node
+                if not pai.tem_filho_esquerdo():
+                    new_node = Node(valor)
+                    new_node.pai = pai
+                    pai.esquerdo = new_node
+                else:
+                    print('Já possui filho esquerdo')
+            elif valor > pai.valor:
+                if not pai.tem_filho_direito():
+                    new_node = Node(valor)
+                    new_node.pai = pai
+                    pai.direito = new_node
+                else:
+                    print('Já possui filho direito')
         else:
-            if valor < self.raiz.valor:
-                new_node = Node(valor)
-                new_node.pai = self.raiz
-                self.raiz.esquerdo = new_node
+            if not pai.tem_filho_esquerdo():
+                if valor < self.raiz.valor:
+                    new_node = Node(valor)
+                    new_node.pai = self.raiz
+                    self.raiz.esquerdo = new_node
+                else:
+                    print('Já possui filho direito')
             else:
-                new_node = Node(valor)
-                new_node.pai = self.raiz
-                self.raiz.direito = new_node
+                if not pai.tem_filho_direito():
+                    new_node = Node(valor)
+                    new_node.pai = self.raiz
+                    self.raiz.direito = new_node
+                else:
+                    print('Já possui filho direito')
 
     def busca(self, valor):
         aux = self.raiz
@@ -84,7 +97,7 @@ class BST:
             percurso.append(node)
         return percurso
 
-    def print_arvore(self, node):
+    def print(self):
         if self.raiz is None:
             return
         fila = [self.raiz]
@@ -100,5 +113,13 @@ class BST:
                 count -= 1
             print(' ')
 
-    def insere_pos_ordem(self, sequencia):
-        pass
+    @staticmethod
+    def insere_pos_ordem(sequencia: list):
+        nova_arvore = BST(node=sequencia[-1])
+        sequencia.pop()
+        for node in sequencia:
+            if BST.eh_raiz(node.pai):
+                nova_arvore.insere(node)
+            else:
+                nova_arvore.insere(node.valor, node.pai)
+        return nova_arvore

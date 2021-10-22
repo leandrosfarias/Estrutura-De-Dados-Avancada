@@ -5,11 +5,14 @@ class Node:
         self.direito = None
         self.pai = None
 
-    def temFilhoEsquerdo(self):
+    def tem_filho_esquerdo(self) -> bool:
         return self.esquerdo is not None
 
-    def temFilhoDireito(self):
+    def tem_filho_direito(self) -> bool:
         return self.direito is not None
+
+    def tem_2_filhos(self) -> bool:
+        return self.temFilhoEsquerdo() and self.temFilhoDireito()
 
     def __str__(self):
         return str(self.valor)

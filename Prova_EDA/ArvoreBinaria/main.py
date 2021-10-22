@@ -1,13 +1,11 @@
 from BST import BST
 
-arvore = BST(5)
-arvore.insere(1)
-arvore.insere(8)
-raiz = arvore.busca(5)
-arvore.insere(9, arvore.busca(8))
-# node = arvore.busca(9)
-percurso = arvore.pos_ordem(raiz)
-arvore.insere_pos_ordem(percurso)
+emOrdem = [8, 5, 7, 9, 18, 13, 20]
+arvore = BST(valor=10)
+
+for valor in emOrdem:
+    arvore.insere(valor)
+# percurso = arvore.em_ordem(arvore.raiz)
 # for node in percurso:
-#     print(node, end=" => ")
-arvore.print_arvore(raiz)
+#     print(node, end=' => ')
+arvore.print()
